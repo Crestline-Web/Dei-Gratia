@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<title>Dei Gratia Staycation – Baguio City</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #C4718F;
+    --pink-light: #E8A5B8;
+    --pink-pale: #F5E6EC;
+    --cream: #F7F0E8;
+    --cream-dark: #EDE3D5;
+    --sage: #7A8C6E;
+    --sage-light: #A8B89A;
+    --brown: #6B4F3A;
+    --text: #2C1F1A;
+    --text-light: #7A6A60;
+    --white: #FDFAF7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(247,240,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,113,143,0.15);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .nav-logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+  .nav-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--text); line-height: 1.1;
+  }
+
+  .nav-logo-text span { display: block; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pink); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--pink); }
+
+  .nav-cta {
+    background: var(--pink); color: white;
+    padding: 0.5rem 1.5rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.82rem; font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: #b05e7a; transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 70% at 70% 40%, rgba(196,113,143,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 60% at 20% 80%, rgba(122,140,110,0.1) 0%, transparent 60%),
+                var(--cream);
+  }
+
+  .hero-dots {
+    position: absolute; top: 15%; right: 8%;
+    display: grid; grid-template-columns: repeat(6,1fr); gap: 12px;
+    opacity: 0.25;
+  }
+  .hero-dots span { width: 4px; height: 4px; border-radius: 50%; background: var(--pink); display: block; }
+
+  .hero-content { position: relative; max-width: 650px; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--pink); }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--text); margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--pink); }
+
+  .hero-desc {
+    font-size: 1rem; color: var(--text-light);
+    line-height: 1.8; max-width: 480px; margin-bottom: 2.5rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--pink); color: white;
+    padding: 0.85rem 2rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { background: #b05e7a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(196,113,143,0.35); }
+
+  .btn-outline {
+    border: 1.5px solid var(--pink); color: var(--pink);
+    padding: 0.85rem 2rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { background: var(--pink-pale); transform: translateY(-2px); }
+
+  .hero-stats {
+    position: absolute; right: 5%; bottom: 15%;
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+  .hero-stat {
+    background: white; border-radius: 16px;
+    padding: 1.2rem 1.8rem;
+    box-shadow: 0 4px 30px rgba(196,113,143,0.12);
+    border: 1px solid rgba(196,113,143,0.1);
+    text-align: center;
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 600; color: var(--pink);
+    line-height: 1;
+  }
+  .hero-stat-label { font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 5rem 3rem; }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1.5px solid var(--pink);
+    background: white;
+    color: var(--pink);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .filter-btn:hover {
+    background: var(--pink-pale);
+  }
+  .filter-btn.active {
+    background: var(--pink);
+    color: white;
+  }
+
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300; line-height: 1.2; color: var(--text);
+  }
+  .section-title em { font-style: italic; color: var(--pink); }
+
+  /* ─── PROPERTIES SECTION ─── */
+  #properties { background: var(--white); }
+
+  .location-group { margin-bottom: 4rem; }
+
+  .location-header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 1.5rem; cursor: pointer;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--pink-pale), var(--cream));
+    border-radius: 16px;
+    border: 1px solid rgba(196,113,143,0.2);
+    transition: all 0.3s;
+  }
+  .location-header:hover { box-shadow: 0 4px 20px rgba(196,113,143,0.15); transform: translateY(-1px); }
+
+  .location-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--pink); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .location-icon svg { width: 24px; height: 24px; color: white; }
+
+  .location-info { flex: 1; }
+  .location-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600; color: var(--text);
+  }
+  .location-meta { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
+
+  .location-badge {
+    background: var(--pink); color: white;
+    padding: 0.3rem 0.9rem; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 500;
+  }
+
+  .location-arrow {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1.5px solid var(--pink); display: flex; align-items: center; justify-content: center;
+    color: var(--pink); transition: all 0.3s;
+  }
+  .location-header.open .location-arrow { transform: rotate(180deg); background: var(--pink); color: white; }
+
+  .units-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    padding: 0.5rem 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+  }
+  .units-grid.open { max-height: 2000px; opacity: 1; }
+
+  /* ─── UNIT CARD ─── */
+  .unit-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(196,113,143,0.12);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .unit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(196,113,143,0.18); }
+
+  .unit-card-image {
+    height: 160px;
+    background: linear-gradient(135deg, var(--pink-pale) 0%, var(--cream-dark) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  .unit-card-image-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300; color: var(--pink);
+    opacity: 0.4;
+  }
+
+  .unit-card-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .unit-card:hover .unit-card-image img { transform: scale(1.05); }
+
+  .unit-pax-badge {
+    position: absolute; top: 10px; right: 10px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(4px);
+    padding: 0.25rem 0.75rem; border-radius: 50px;
+    font-size: 0.72rem; color: var(--text); font-weight: 500;
+    border: 1px solid rgba(196,113,143,0.2);
+  }
+
+  .unit-card-body { padding: 1.25rem; }
+
+  .unit-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600; color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .unit-card-location { font-size: 0.77rem; color: var(--text-light); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.3rem; }
+
+  .unit-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .unit-tag {
+    background: var(--pink-pale); color: var(--pink);
+    padding: 0.2rem 0.6rem; border-radius: 50px;
+    font-size: 0.68rem; font-weight: 500;
+  }
+
+  .unit-card-btn {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.65rem 1rem;
+    background: var(--pink-pale); border-radius: 10px;
+    font-size: 0.8rem; color: var(--pink); font-weight: 500;
+    transition: all 0.2s;
+  }
+  .unit-card:hover .unit-card-btn { background: var(--pink); color: white; }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(44,31,26,0.5);
+    backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: var(--white);
+    border-radius: 24px;
+    max-width: 720px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    transform: translateY(20px) scale(0.97);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+  .modal-image {
+    height: 240px;
+    background: linear-gradient(135deg, var(--pink-pale), var(--cream-dark));
+    display: flex; align-items: center; justify-content: center;
+    position: relative; border-radius: 24px 24px 0 0; overflow: hidden;
+  }
+  .modal-image-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 300; color: var(--pink); opacity: 0.3;
+  }
+
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.9); border: none;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: var(--text);
+    transition: all 0.2s; z-index: 10;
+  }
+  .modal-close:hover { background: white; transform: rotate(90deg); }
+
+  .modal-body { padding: 2rem; }
+
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 600; color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .modal-location { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+
+  .modal-checkin {
+    display: flex; gap: 1.5rem; margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--pink-pale); border-radius: 12px;
+  }
+  .modal-checkin-item { text-align: center; }
+  .modal-checkin-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink); }
+  .modal-checkin-value { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-top: 0.15rem; }
+
+  .modal-pax {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--sage); color: white;
+    padding: 0.3rem 1rem; border-radius: 50px;
+    font-size: 0.78rem; margin-bottom: 1.5rem;
+  }
+
+  .modal-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+
+  .modal-section-title {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--pink); font-weight: 500; margin-bottom: 0.6rem;
+  }
+
+  .modal-list { list-style: none; }
+  .modal-list li {
+    font-size: 0.82rem; color: var(--text-light);
+    padding: 0.25rem 0;
+    display: flex; align-items: flex-start; gap: 0.5rem;
+  }
+  .modal-list li::before { content: '·'; color: var(--pink); font-size: 1rem; flex-shrink: 0; margin-top: -1px; }
+
+  .modal-inclusions { grid-column: 1 / -1; }
+  .modal-inclusions-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .modal-inclusion-tag {
+    background: var(--cream); border: 1px solid rgba(196,113,143,0.15);
+    padding: 0.3rem 0.8rem; border-radius: 50px;
+    font-size: 0.75rem; color: var(--text);
+  }
+
+  .modal-notices {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;
+  }
+  .modal-notice {
+    display: flex; align-items: center; gap: 0.4rem;
+    background: #FFF5F7; border: 1px solid rgba(196,113,143,0.2);
+    padding: 0.35rem 0.9rem; border-radius: 50px;
+    font-size: 0.75rem; color: var(--pink);
+  }
+
+  .modal-parking {
+    background: var(--cream); border-radius: 12px;
+    padding: 0.85rem 1.25rem; margin-bottom: 1.5rem;
+    font-size: 0.82rem; color: var(--text-light);
+    border-left: 3px solid var(--sage);
+  }
+
+  .modal-pricing {
+    margin-bottom: 1.5rem;
+  }
+  .modal-pricing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600; color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+  .modal-pricing-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;
+  }
+  .modal-pricing-block {
+    background: var(--cream); border-radius: 12px;
+    padding: 1rem 1.25rem;
+    border-top: 3px solid var(--pink);
+  }
+  .modal-pricing-block.weekend {
+    border-top-color: var(--sage);
+  }
+  .modal-pricing-block.peak {
+    border-top-color: #d4a574;
+  }
+  .modal-pricing-label {
+    font-size: 0.78rem; font-weight: 500; color: var(--pink);
+    margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .modal-pricing-block.weekend .modal-pricing-label {
+    color: var(--sage);
+  }
+  .modal-pricing-block.peak .modal-pricing-label {
+    color: #d4a574;
+  }
+  .modal-pricing-sublabel {
+    font-size: 0.65rem; color: var(--text-light); font-weight: 400;
+    text-transform: none; letter-spacing: 0;
+  }
+  .modal-pricing-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.25rem 0; font-size: 0.8rem; color: var(--text);
+  }
+  .modal-pricing-row span:last-child {
+    font-weight: 500; color: var(--brown);
+  }
+  .modal-pricing-note {
+    margin-top: 0.5rem; font-size: 0.72rem; color: var(--text-light);
+    font-style: italic;
+  }
+  @media (max-width: 768px) {
+    .modal-pricing-grid { grid-template-columns: 1fr; }
+  }
+
+  .modal-actions { display: flex; gap: 1rem; }
+
+  .btn-airbnb {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    background: var(--pink); color: white;
+    padding: 1rem; border-radius: 12px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: all 0.25s;
+  }
+  .btn-airbnb:hover { background: #b05e7a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(196,113,143,0.35); }
+
+  .btn-airbnb.placeholder {
+    background: var(--cream-dark); color: var(--text-light);
+    cursor: default;
+  }
+  .btn-airbnb.placeholder:hover { transform: none; box-shadow: none; }
+
+  /* ─── WHY US ─── */
+  #why { background: var(--cream); }
+
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
+
+  .feature-card {
+    background: white; border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(196,113,143,0.1);
+    transition: all 0.3s;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 10px 35px rgba(196,113,143,0.12); }
+
+  .feature-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--pink-pale); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .feature-icon svg { width: 26px; height: 26px; color: var(--pink); }
+
+  .feature-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .feature-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.7; }
+
+  /* ─── TESTIMONIAL ─── */
+  #reviews {
+    background: linear-gradient(135deg, var(--pink-pale) 0%, var(--cream) 100%);
+  }
+
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+
+  .review-card {
+    background: white; border-radius: 20px;
+    padding: 1.75rem;
+    border: 1px solid rgba(196,113,143,0.1);
+    transition: all 0.3s;
+  }
+  .review-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(196,113,143,0.12); }
+
+  .review-stars { color: var(--pink); font-size: 1rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+  .review-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 1rem; }
+  .review-author { font-size: 0.78rem; color: var(--text-light); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--white); }
+
+  .contact-wrapper {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    max-width: 900px; margin: 0 auto;
+    align-items: center;
+  }
+
+  .contact-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300; margin-bottom: 0.75rem;
+  }
+  .contact-info p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; margin-bottom: 2rem; }
+
+  .contact-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .contact-item-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: var(--pink-pale); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-item-icon svg { width: 18px; height: 18px; color: var(--pink); }
+  .contact-item-text { font-size: 0.85rem; color: var(--text); }
+  .contact-item-label { font-size: 0.7rem; color: var(--text-light); margin-bottom: 0.1rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .contact-cta-box {
+    background: linear-gradient(135deg, var(--pink), #E8908A);
+    border-radius: 24px; padding: 2.5rem;
+    color: white; text-align: center;
+  }
+  .contact-cta-box h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300; margin-bottom: 0.5rem;
+  }
+  .contact-cta-box p { font-size: 0.82rem; opacity: 0.85; margin-bottom: 1.5rem; line-height: 1.6; }
+  .btn-white {
+    display: inline-block;
+    background: white; color: var(--pink);
+    padding: 0.85rem 2rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.88rem; font-weight: 500;
+    transition: all 0.25s;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--text);
+    padding: 3rem;
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+  }
+  footer strong { color: var(--pink-light); font-weight: 400; }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; flex-wrap: wrap; }
+    .nav-links { gap: 1rem; font-size: 0.75rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .nav-cta { padding: 0.4rem 1rem; font-size: 0.75rem; }
+    
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero-stats { display: none; }
+    .modal-sections { grid-template-columns: 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .modal-checkin { flex-wrap: wrap; gap: 1rem; }
+    
+    /* Keep arrow circle round on mobile */
+    .location-arrow {
+      width: 32px; height: 32px; 
+      flex-shrink: 0;
+    }
+    
+    /* Prevent text wrapping in location names */
+    .location-name {
+      white-space: nowrap;
+      font-size: 1.1rem;
+    }
+    
+    /* Fix location header wrapping on mobile */
+    .location-header {
+      flex-wrap: nowrap;
+      padding: 1rem 1.5rem;
+      gap: 0.75rem;
+    }
+    
+    .location-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+    
+    .location-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .location-meta {
+      font-size: 0.7rem;
+      white-space: normal;
+    }
+    
+    .location-badge {
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-circle">
+      <img src="data:image/png;base64,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" alt="Dei Gratia Staycation Logo">
+    </div>
+    <div class="nav-logo-text">
+      Dei Gratia
+      <span>Staycation</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#properties" class="nav-cta" onclick="event.preventDefault(); showUnits();">Browse Units</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Baguio City, Philippines</div>
+    <h1>Your Perfect<br><em>Baguio</em><br>Staycation.</h1>
+    <p class="hero-desc">Discover cozy, stylish Airbnb units across Baguio City. Whether you're visiting for a quick escape, family trip, or weekend with friends, our spaces are designed for comfort and convenience. Enjoy clean, fully equipped units, comfortable beds, fast WiFi, and prime locations near the city's top spots. Relax, unwind, and feel at home in Baguio.</p>
+    <div class="hero-actions">
+      <a href="#properties" class="btn-primary" onclick="event.preventDefault(); showUnits();">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        View All Units
+      </a>
+      <a href="#contact" class="btn-outline">Book Enquiry</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">25+</div>
+      <div class="hero-stat-label">Units Available</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">★ 4.83</div>
+      <div class="hero-stat-label">Airbnb Rating</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">10+</div>
+      <div class="hero-stat-label">Locations</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Browse & Book</div>
+    <h2 class="section-title">Our <em>Properties</em></h2>
+    <p style="color:var(--text-light);font-size:0.9rem;margin-top:0.5rem;">Click a location to explore available units</p>
+  </div>
+
+  <div id="locations-container" style="display:none;"></div>
+  
+  <div id="show-units-prompt" style="text-align:center;padding:3rem 1.5rem;">
+    <button onclick="showUnits()" style="background:var(--pink);color:white;padding:1rem 3rem;border-radius:50px;border:none;font-size:1rem;font-weight:500;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;" onmouseover="this.style.background='#b05e7a';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 25px rgba(196,113,143,0.35)'" onmouseout="this.style.background='var(--pink)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      Show All Units
+    </button>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Why Choose Us</div>
+    <h2 class="section-title">Stay with <em>confidence</em></h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="feature-title">Verified Listings</div>
+      <div class="feature-desc">Every unit is personally managed and verified. What you see is exactly what you get. No surprises on arrival.</div>
+    </div>
+    <div class="feature-card fade-up" style="transition-delay:0.1s">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="feature-title">Prime Locations</div>
+      <div class="feature-desc">Units spread across Baguio's most accessible areas . steps away from Session Road, Burnham Park, and major universities.</div>
+    </div>
+    <div class="feature-card fade-up" style="transition-delay:0.3s">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="feature-title">Fully Equipped</div>
+      <div class="feature-desc">Netflix, WiFi, kitchen essentials, fresh linens, toiletries . everything you need for a comfortable home-away-from-home stay.</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Guest Reviews</div>
+    <h2 class="section-title">What guests <em>say</em></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card fade-up">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"A very big WOW factor. Highly recommend. The ambiance is very calm and cozy."</div>
+      <div class="review-author">· Guest from Calabarzon, Philippines · February 2024</div>
+    </div>
+    <div class="review-card fade-up" style="transition-delay:0.1s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Sobrang lapit sa mga pasyalan. May convenience store at food establishment din sa baba kaya no worries sa mga need bilhin."</div>
+      <div class="review-author">· Guest from Quezon City, Philippines · March 2024</div>
+    </div>
+    <div class="review-card fade-up" style="transition-delay:0.2s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Amazing stay! Grace was a fantastic host - helpful, friendly, and the place was spotless. Great location, comfy bed, and all the amenities I needed are available. Grace is super quick in communication. My stay were comfortable. I'll be back!"</div>
+      <div class="review-author">· Airbnb Guest · March 2024</div>
+    </div>
+    <div class="review-card fade-up" style="transition-delay:0.3s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Exemplary and Superhost. Proactive and very responsive. Great value accommodation. Spacious and well prepared room. I can recommend it to families, friends, peers and colleagues. An overall excellent host and place for an extra-ordinary experience with my 5-star approved rating. Impressive welcome and hospitality that exceeded our family expectations. :-)"</div>
+      <div class="review-author">· Guest from Taguig, Philippines · April 2024</div>
+    </div>
+    <div class="review-card fade-up" style="transition-delay:0.4s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"We had a great time. The place is nice and clean and has everything you could need. I loved the minimalist vibes. The host was available at all times to answer our questions quickly. Thank you."</div>
+      <div class="review-author">· Guest from Quezon City, Philippines · April 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Ready to <em>book?</em></h2>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info fade-up">
+      <h3>Let's find your perfect unit</h3>
+      <p>Have questions about availability, group bookings, or need help choosing the right unit for your stay? Reach out . we're happy to help.</p>
+      <a href="https://www.facebook.com/deigratiastaycation" target="_blank" rel="noopener noreferrer" class="contact-item" style="text-decoration:none;color:inherit;">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Facebook</div>
+          <div class="contact-item-text">Dei Gratia Baguio Condotel/ Staycation/ Transient</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Location</div>
+          <div class="contact-item-text">Baguio City, Philippines</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-cta-box fade-up" style="transition-delay:0.15s">
+      <h4>Book your Baguio escape today</h4>
+      <p>All bookings are done securely through Airbnb. Click on any unit to view availability and book instantly.</p>
+      <a href="#properties" class="btn-white">Browse All Units</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Dei Gratia Staycation</strong> · Baguio City, Philippines · All rights reserved</p>
+  <p style="margin-top:0.5rem">All bookings processed securely through Airbnb</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-image" id="modal-image">
+      <div class="modal-image-placeholder" id="modal-image-placeholder"></div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-pax" id="modal-pax">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span id="modal-pax-text"></span>
+      </div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-location" id="modal-location">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span id="modal-location-text"></span>
+      </div>
+      <div class="modal-checkin">
+        <div class="modal-checkin-item">
+          <div class="modal-checkin-label">Check In</div>
+          <div class="modal-checkin-value" id="modal-checkin"></div>
+        </div>
+        <div class="modal-checkin-item">
+          <div class="modal-checkin-label">Check Out</div>
+          <div class="modal-checkin-value" id="modal-checkout"></div>
+        </div>
+      </div>
+      <div class="modal-sections">
+        <div id="modal-nearby-section">
+          <ul class="modal-list" id="modal-nearby"></ul>
+        </div>
+        <div id="modal-spots-section">
+          <ul class="modal-list" id="modal-spots"></ul>
+        </div>
+        <div class="modal-inclusions">
+          <div class="modal-section-title">✨ Inclusions</div>
+          <div class="modal-inclusions-grid" id="modal-inclusions"></div>
+        </div>
+      </div>
+      <div class="modal-notices" id="modal-notices"></div>
+      <div class="modal-parking" id="modal-parking"></div>
+      <div class="modal-pricing" id="modal-pricing" style="display:none;">
+        <div class="modal-pricing-title">💰 Rates</div>
+        <div class="modal-pricing-grid" id="modal-pricing-grid"></div>
+      </div>
+      <div class="modal-actions">
+        <a href="#" class="btn-airbnb" id="modal-airbnb-btn" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 16.563c-.195.392-.587.587-1.175.587-.391 0-.783-.195-1.174-.587l-3.213-3.213-3.213 3.213c-.391.392-.783.587-1.174.587-.588 0-.98-.195-1.175-.587-.196-.392-.196-.784 0-1.175l3.213-3.213L6.44 8.963c-.392-.391-.392-.979 0-1.37.391-.392.979-.392 1.37 0L11.023 10.8l3.213-3.213c.39-.392.978-.392 1.37 0 .39.391.39.979 0 1.37L12.393 12.17l3.213 3.213c.196.196.196.784-.044 1.18z"/></svg>
+          Book on Airbnb
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const units = [
+{
+    id: 5,
+    name: "Bakakeng Modern House",
+    shortName: "Bakakeng House",
+    location: "Eagle Crest Phase 3 Bakakeng, Baguio City",
+    group: "Bakakeng Modern House",
+    checkIn: "3:00 PM", checkOut: "11:00 AM",
+    pax: "10–30 pax",
+    nearby: ["10 minutes ride to town","1 to 2 Car Parking","Rooftop / Roofdeck Open Wide Balcony","4 Bedrooms with Smart Lock Doors","Perimeter Fenced with Service Gate"],
+    spots: ["Masters Bedroom at 3rd floor with own T&B + Rooftop access","2 Bedrooms on 2nd floor with mini balcony & Queen Size Beds","1 Bedroom with own T&B & Queen Size Bed","8 Seater Dining Area"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Induction Stove","Kitchen utensils","Pots & Pans","Rice cooker","Kettle","Electric Fans","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","Griller"],
+    parking: "1 to 2 Car Parking available on premises.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["10 pax","₱6,000"],["11 pax","₱6,500"],["12 pax","₱7,000"],["13 pax","₱7,500"],["14 pax","₱8,000"],["15 pax","₱8,500"]],
+      weekend: [["10 pax","₱6,500"],["11 pax","₱7,000"],["12 pax","₱7,500"],["13 pax","₱8,000"],["14 pax","₱8,500"],["15 pax","₱9,000"]],
+      peak: [["10 pax", "₱8,000"], ["11 pax", "₱8,500"], ["12 pax", "₱9,000"], ["13 pax", "₱9,500"], ["14 pax", "₱10,000"], ["15 pax", "₱10,500"]],
+      note: "+₱500 per additional pax"
+    },
+    airbnb: "https://www.airbnb.com/l/q0FITZYe",
+    image: "./images/Bakakeng.png"
+  },
+{
+    id: 9,
+    name: "Megatower 3 Unit 3F-13",
+    shortName: "Unit 3F-13",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 3",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "4–10 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,700"],["5 pax","₱3,000"],["6 pax","₱3,500"],["7 pax","₱4,000"],["8 pax","₱4,500"],["9 pax","₱5,000"],["10 pax","₱5,500"]],
+      weekend: [["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱4,000"],["7 pax","₱4,500"],["8 pax","₱5,000"],["9 pax","₱5,500"],["10 pax","₱6,000"]],
+      peak: [["4 pax", "₱3,500"], ["5 pax", "₱4,000"], ["6 pax", "₱4,500"], ["7 pax", "₱5,000"], ["8 pax", "₱5,500"], ["9 pax", "₱6,000"], ["10 pax", "₱6,500"]]
+    },
+    airbnb: "https://www.airbnb.co.uk/rooms/1592574682732345304?viralityEntryPoint=1&s=76",
+    image: "./images/mega3_3f13.png"  },
+{
+    id: 10,
+    name: "Megatower 3 Unit 5F-13",
+    shortName: "Unit 5F-13",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 3",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "4–8 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,700"],["5 pax","₱3,000"],["6 pax","₱3,500"],["7 pax","₱4,000"],["8 pax","₱4,500"]],
+      weekend: [["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱4,000"],["7 pax","₱4,500"],["8 pax","₱5,000"]],
+      peak: [["4 pax", "₱3,500"], ["5 pax", "₱4,000"], ["6 pax", "₱4,500"], ["7 pax", "₱5,000"], ["8 pax", "₱5,500"]]
+    },
+    airbnb: "https://www.airbnb.co.uk/rooms/1611602895955814810?viralityEntryPoint=1&s=76",
+    image: "./images/5f13.png"  },
+{
+    id: 11,
+    name: "Megatower 3 Unit GF-17",
+    shortName: "Unit GF-17",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 3",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "4–8 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,700"],["5 pax","₱3,000"],["6 pax","₱3,500"],["7 pax","₱4,000"],["8 pax","₱4,500"]],
+      weekend: [["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱4,000"],["7 pax","₱4,500"],["8 pax","₱5,000"]],
+      peak: [["4 pax", "₱3,500"], ["5 pax", "₱4,000"], ["6 pax", "₱4,500"], ["7 pax", "₱5,000"], ["8 pax", "₱5,500"]]
+    },
+    airbnb: "https://www.airbnb.com/l/8tEI1cPX",
+    image: "./images/gf17.png"
+  },
+{
+    id: 15,
+    name: "Megatower 3 Unit 5F-32",
+    shortName: "Unit 5F-32",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 3",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–6 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2 pax","₱2,200"],["3 pax","₱2,500"],["4 pax","₱2,700"],["5 pax","₱3,000"],["6 pax","₱3,300"]],
+      weekend: [["2 pax","₱2,500"],["3 pax","₱2,800"],["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱3,800"]],
+      peak: [["2 pax", "₱3,000"], ["3 pax", "₱3,300"], ["4 pax", "₱3,500"], ["5 pax", "₱4,000"], ["6 pax", "₱4,300"]]
+    },
+    airbnb: "https://www.airbnb.com/l/cAbT6ey1",
+    image: "./images/5f32.png"
+  },
+{
+    id: 12,
+    name: "Megatower 3 Unit 4F-29",
+    shortName: "Unit 4F-29",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 3",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–5 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2 pax","₱2,200"],["3 pax","₱2,500"],["4 pax","₱2,700"],["5 pax","₱3,000"]],
+      weekend: [["2 pax","₱2,500"],["3 pax","₱2,800"],["4 pax","₱3,000"],["5 pax","₱3,500"]],
+      peak: [["2 pax", "₱3,000"], ["3 pax", "₱3,300"], ["4 pax", "₱3,500"], ["5 pax", "₱4,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/xol02uxN",
+    image: "./images/4f29.png"
+  },
+{
+    id: 14,
+    name: "Megatower 3 Unit 4F-31",
+    shortName: "Unit 4F-31",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 3",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–5 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2 pax","₱2,200"],["3 pax","₱2,500"],["4 pax","₱2,700"],["5 pax","₱3,000"]],
+      weekend: [["2 pax","₱2,500"],["3 pax","₱2,800"],["4 pax","₱3,000"],["5 pax","₱3,500"]],
+      peak: [["2 pax", "₱3,000"], ["3 pax", "₱3,300"], ["4 pax", "₱3,500"], ["5 pax", "₱4,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/5LYf8zfQ",
+    image: "./images/f431.png"
+  },
+{
+    id: 13,
+    name: "Megatower 3 Unit 5F-29",
+    shortName: "Unit 5F-29",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 3",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–4 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2 pax","₱2,200"],["3 pax","₱2,500"],["4 pax","₱2,700"]],
+      weekend: [["2 pax","₱2,500"],["3 pax","₱2,800"],["4 pax","₱3,000"]],
+      peak: [["2 pax", "₱3,000"], ["3 pax", "₱3,300"], ["4 pax", "₱3,500"]]
+    },
+    airbnb: "https://www.airbnb.com/l/1jxjib1m",
+    image: "./images/5f29.png"
+  },
+{
+    id: 7,
+    name: "Megatower 1",
+    shortName: "Megatower 1",
+    location: "Sandico St., Brgy Salud Mitra, Baguio City",
+    group: "Megatower 1",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "4–9 pax",
+    nearby: ["2 mins walk to Cathedral","2 mins walk to Session Road","5 mins walk to SM Baguio","8 mins walk to Ililikha","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay parking ₱350–500 per night. Reservation Required.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,500"],["5 pax","₱3,000"],["6 pax","₱3,500"],["7 pax","₱4,000"],["8 pax","₱4,500"],["9 pax","₱5,000"]],
+      weekend: [["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱4,000"],["7 pax","₱4,500"],["8 pax","₱5,000"],["9 pax","₱5,500"]]
+    },
+    airbnb: "https://www.airbnb.com/l/VLHjVXd0",
+    image: "./images/Mega_1.png"
+  },
+{
+    id: 8,
+    name: "Megatower 7",
+    shortName: "Megatower 7",
+    location: "Honeymoon Road, Baguio City",
+    group: "Megatower 7",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–5 pax",
+    nearby: ["3 mins walk to STI Baguio","3 mins walk to SLU Main","10 mins walk to UB","1.8km to UC","2km to UP Baguio"],
+    spots: ["8 mins walk to Center Mall","8 mins walk to Baguio Center Mall","10 mins walk to Public Market","7–10 mins ride / 15 mins walk to Burnham Park","7–10 mins ride to Night Market","15 mins ride to Session Road","15 mins ride to SM Baguio"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking available.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2–3 pax","₱2,000"],["4 pax","₱2,300"],["5 pax","₱2,700"]],
+      weekend: [["2–3 pax","₱2,300"],["4 pax","₱2,600"],["5 pax","₱3,000"]],
+      peak: [["2–3 pax", "₱2,800"], ["4 pax", "₱3,100"], ["5 pax", "₱3,500"]]
+    },
+    airbnb: "https://www.airbnb.com/l/TO18XEoo",
+    image: "./images/Mega_7.png"
+  },
+{
+    id: 3,
+    name: "Grandview Residences Unit 108",
+    shortName: "Unit 108",
+    location: "Kisad Road Montinola Subdivision, Baguio City",
+    group: "Grandview Residences",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "5–15 pax",
+    nearby: ["10–12 mins walk to Burnham Park","10–12 mins walk to Orchidarium Garden","12–15 mins Night Market","15–18 mins walk to Session Road","15–18 mins walk to SM Baguio","10 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","McDo, Jollibee, Chowking, Shakeys","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking in our slots 110, 108, 210. Pay parking ₱250/night if our slots are full.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["5–7 pax","₱3,500"],["8–9 pax","₱4,500"],["10–11 pax","₱5,500"],["12–13 pax","₱6,500"],["14–15 pax","₱7,500"]],
+      weekend: [["5–7 pax","₱4,200"],["8–9 pax","₱5,400"],["10–11 pax","₱6,600"],["12–13 pax","₱7,800"],["14–15 pax","₱9,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/hrvjGEyr",
+    image: "./images/GV_108.png"
+  },
+{
+    id: 2,
+    name: "Grandview Residences Unit 110",
+    shortName: "Unit 110",
+    location: "Kisad Road Montinola Subdivision, Baguio City",
+    group: "Grandview Residences",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "5–10 pax",
+    nearby: ["10–12 mins walk to Burnham Park","10–12 mins walk to Orchidarium Garden","12–15 mins Night Market","15–18 mins walk to Session Road","15–18 mins walk to SM Baguio","10 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","McDo, Jollibee, Chowking, Shakeys","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking in our slots 110, 108, 210. Pay parking ₱250/night if our slots are full.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["5–6 pax","₱3,000"],["7 pax","₱3,500"],["8 pax","₱4,000"],["9 pax","₱4,500"],["10 pax","₱5,000"]],
+      weekend: [["5–6 pax","₱3,500"],["7 pax","₱4,000"],["8 pax","₱4,500"],["9 pax","₱5,000"],["10 pax","₱5,500"]],
+      peak: [["5–6 pax", "₱4,000"], ["7 pax", "₱4,500"], ["8 pax", "₱5,000"], ["9 pax", "₱5,500"], ["10 pax", "₱6,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/BorZpJXq",
+    image: "./images/GV_110.png"
+  },
+
+
+{
+    id: 22,
+    name: "Grandview Residences Unit 402",
+    shortName: "Unit 402",
+    location: "Kisad Road Montinola Subdivision, Baguio City",
+    group: "Grandview Residences",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–5 pax",
+    nearby: ["10–12 mins walk to Burnham Park","10–12 mins walk to Orchidarium Garden","12–15 mins Night Market","15–18 mins walk to Session Road","15–18 mins walk to SM Baguio","10 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","McDo, Jollibee, Chowking, Shakeys","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking in our slots 110, 108, 210. Pay parking ₱250/night if our slots are full.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2 pax","₱1,800"],["3 pax","₱2,100"],["4 pax","₱2,400"],["5 pax","₱2,700"]],
+      weekend: [["2 pax","₱2,000"],["3 pax","₱2,300"],["4 pax","₱2,600"],["5 pax","₱2,900"]],
+      peak: [["2 pax", "₱2,500"], ["3 pax", "₱2,800"], ["4 pax", "₱3,100"], ["5 pax", "₱3,400"]]
+    },
+    airbnb: "https://www.airbnb.com/l/5qfxIUK8",
+    image: "./images/GV402.png"
+  },
+{
+    id: 27,
+    name: "Grandview Residences Unit 106",
+    shortName: "Unit 106",
+    location: "Kisad Road Montinola Subdivision, Baguio City",
+    group: "Grandview Residences",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "5–14 pax",
+    nearby: ["Walking distance to Burnham Park","Walking distance to Public Market","Walking distance to Night Market","Walking distance to Session Road","Walking distance to SM Baguio","Walking distance to Univ of Cordilleras","Walking distance to City Bus Terminal"],
+    spots: ["Good Taste Restaurant","Orchidarium Garden","Chowking, Shakeys","McDo, Jollibee","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Stove","Kitchen utensils","Pots & Pans","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Bidet","Fresh linens","Towels","CCTV","24hrs duty guard"],
+    parking: "Free parking (first come, first served). Pay parking ₱250/night if full.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["5–6 pax","₱3,000"],["7 pax","₱3,500"],["8 pax","₱4,000"],["9 pax","₱4,500"],["10 pax","₱5,000"],["11 pax","₱5,500"],["12 pax","₱6,000"],["13 pax","₱6,500"],["14 pax","₱7,000"]],
+      weekend: [["5–6 pax","₱3,500"],["7 pax","₱4,000"],["8 pax","₱4,500"],["9 pax","₱5,000"],["10 pax","₱5,500"],["11 pax","₱6,000"],["12 pax","₱6,500"],["13 pax","₱7,000"],["14 pax","₱7,500"]],
+      peak: [["5–6 pax", "₱4,000"], ["7 pax", "₱4,500"], ["8 pax", "₱5,000"], ["9 pax", "₱5,500"], ["10 pax", "₱6,000"], ["11 pax", "₱6,500"], ["12 pax", "₱7,000"], ["13 pax", "₱7,500"], ["14 pax", "₱8,000"]]
+    },
+    airbnb: "",
+    image: "./images/GV_106.png"
+  },
+{
+    id: 6,
+    name: "Ina Mansion",
+    shortName: "Ina Mansion",
+    location: "Kisad Road, Baguio City",
+    group: "Ina Mansion",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "5–12 pax",
+    nearby: ["Just across Burnham Park","4 mins walk to Orchidarium Garden","6 mins walk to Night Market","11 mins walk to Session Road","13 mins walk to SM Baguio","8 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","Shakeys","McDo, Jollibee, Chowking","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "NO PARKING. Burnham Parking / Nearby establishments parking only.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["5 pax","₱3,000"],["6 pax","₱3,500"],["7 pax","₱4,000"],["8 pax","₱4,500"],["9 pax","₱5,000"],["10 pax","₱5,500"],["11 pax","₱6,000"],["12 pax","₱6,500"]],
+      weekend: [["5 pax","₱3,500"],["6 pax","₱4,100"],["7 pax","₱4,700"],["8 pax","₱5,300"],["9 pax","₱5,900"],["10 pax","₱6,500"],["11 pax","₱7,100"],["12 pax","₱7,700"]],
+      peak: [["5 pax", "₱4,000"], ["6 pax", "₱4,600"], ["7 pax", "₱5,200"], ["8 pax", "₱5,800"], ["9 pax", "₱6,400"], ["10 pax", "₱7,000"], ["11 pax", "₱7,600"], ["12 pax", "₱7,700"]]
+    },
+    airbnb: "https://www.airbnb.com/l/ugFlsvQY",
+    image: "./images/ina_mansion.png"
+  },
+{
+    id: 23,
+    name: "Zonevill Unit 505",
+    shortName: "Unit 505",
+    location: "48 Kisad Road, Montinola Subd., Baguio City",
+    group: "Zonevill",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–6 pax",
+    nearby: ["10–12 mins walk to Burnham Park","10–12 mins walk to Orchidarium Garden","12–15 mins Night Market","15–18 mins walk to Session Road","15–18 mins walk to SM Baguio","10 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking, first come first serve. Pay Parking ₱250/night.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["3 pax","₱2,000"],["4 pax","₱2,300"],["5 pax","₱2,600"],["6 pax","₱2,900"],["7 pax","₱3,200"],["8 pax","₱3,500"]],
+      weekend: [["3 pax","₱2,200"],["4 pax","₱2,500"],["5 pax","₱2,900"],["6 pax","₱3,200"],["7 pax","₱3,500"],["8 pax","₱3,800"]],
+      peak: [["3 pax", "₱2,700"], ["4 pax", "₱3,000"], ["5 pax", "₱3,400"], ["6 pax", "₱3,700"], ["7 pax", "₱4,000"], ["8 pax", "₱4,300"]]
+    },
+    airbnb: "https://www.airbnb.com/l/pUnHZi6a",
+    image: "./images/ZV505.png"
+  },
+{
+    id: 24,
+    name: "Zonevill Unit 615",
+    shortName: "Unit 615",
+    location: "48 Kisad Road, Montinola Subd., Baguio City",
+    group: "Zonevill",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–6 pax",
+    nearby: ["10–12 mins walk to Burnham Park","10–12 mins walk to Orchidarium Garden","12–15 mins Night Market","15–18 mins walk to Session Road","15–18 mins walk to SM Baguio","10 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking, first come first serve. Pay Parking ₱250/night.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2 pax","₱1,800"],["3 pax","₱2,100"],["4 pax","₱2,400"],["5 pax","₱2,700"],["6 pax","₱3,000"]],
+      weekend: [["2 pax","₱2,000"],["3 pax","₱2,300"],["4 pax","₱2,600"],["5 pax","₱2,900"],["6 pax","₱3,200"]],
+      peak: [["2 pax", "₱2,500"], ["3 pax", "₱2,800"], ["4 pax", "₱3,100"], ["5 pax", "₱3,400"], ["6 pax", "₱3,700"]]
+    },
+    airbnb: "https://www.airbnb.com/l/hIvPQsp6",
+    image: "./images/ZV615.png"
+  },
+{
+    id: 18,
+    name: "Burnham Suites Unit 411",
+    shortName: "Unit 411",
+    location: "Kisad Road, Baguio City",
+    group: "Burnham Suites",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "2–6 pax",
+    nearby: ["Just across Burnham Park","3 mins walk to Orchidarium Garden","5 mins walk to Night Market","10 mins walk to Session Road","12 mins walk to SM Baguio","9 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","Shakeys","McDo, Jollibee, Chowking","Porta Vaga","BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking . front / back of the hotel. 1st come 1st serve only if available.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["2 pax","₱2,200"],["3 pax","₱2,500"],["4 pax","₱2,800"],["5 pax","₱3,300"],["6 pax","₱3,800"]],
+      weekend: [["2 pax","₱2,500"],["3 pax","₱2,800"],["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱4,000"]],
+      peak: [["2 pax", "₱3,000"], ["3 pax", "₱3,300"], ["4 pax", "₱3,500"], ["5 pax", "₱4,000"], ["6 pax", "₱4,500"]]
+    },
+    airbnb: "https://www.airbnb.com/l/EPy8VyHx",
+    image: "./images/burnham_suites_411.png"
+  },
+{
+    id: 19,
+    name: "Burnham Suites Unit 504",
+    shortName: "Unit 504",
+    location: "Kisad Road, Baguio City",
+    group: "Burnham Suites",
+    checkIn: "12:00 PM", checkOut: "10:00 AM",
+    pax: "4–6 pax",
+    nearby: ["Just across Burnham Park","3 mins walk to Orchidarium Garden","5 mins walk to Night Market","10 mins walk to Session Road","12 mins walk to SM Baguio","9 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","Shakeys","McDo, Jollibee, Chowking","Porta Vaga","BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Free parking . front / back of the hotel. 1st come 1st serve only if available.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,800"],["5 pax","₱3,300"],["6 pax","₱3,800"]],
+      weekend: [["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱4,000"]],
+      peak: [["4 pax", "₱3,500"], ["5 pax", "₱4,000"], ["6 pax", "₱4,500"]]
+    },
+    airbnb: "https://www.airbnb.com/l/bJTX6pGz",
+    image: "./images/burnham_suites_504.png"
+  },
+{
+    id: 16,
+    name: "Burnham Hill Unit 304",
+    shortName: "Unit 304",
+    location: "Montinola Subd., Baguio City",
+    group: "Burnham Hill",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "4–8 pax",
+    nearby: ["10–12 mins walk to Burnham Park","10–12 mins walk to Orchidarium Garden","12–15 mins Night Market","15–18 mins walk to Session Road","15–18 mins walk to SM Baguio","10 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","Shakeys","McDo, Jollibee, Chowking","Porta Vaga","BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay Parking ₱250–300 per night. First come, first served.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,700"],["5 pax","₱3,000"],["6 pax","₱3,300"],["7 pax","₱3,600"],["8 pax","₱3,900"]],
+      weekend: [["4 pax","₱2,900"],["5 pax","₱3,300"],["6 pax","₱3,700"],["7 pax","₱4,100"],["8 pax","₱4,500"]],
+      peak: [["4 pax", "₱3,400"], ["5 pax", "₱3,800"], ["6 pax", "₱4,200"], ["7 pax", "₱4,600"], ["8 pax", "₱5,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/juTTB91M",
+    image: "./images/burnham_hill_304.png"  },
+{
+    id: 17,
+    name: "Burnham Hill Unit 504",
+    shortName: "Unit 504",
+    location: "Montinola Subd., Baguio City",
+    group: "Burnham Hill",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "4–8 pax",
+    nearby: ["10–12 mins walk to Burnham Park","10–12 mins walk to Orchidarium Garden","12–15 mins Night Market","15–18 mins walk to Session Road","15–18 mins walk to SM Baguio","10 mins ride to Victory Liner"],
+    spots: ["Public Market","Good Taste Restaurant","Shakeys","McDo, Jollibee, Chowking","Porta Vaga","BGH"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay Parking ₱250–300 per night. First come, first served.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,700"],["5 pax","₱3,000"],["6 pax","₱3,300"],["7 pax","₱3,600"],["8 pax","₱3,900"]],
+      weekend: [["4 pax","₱2,900"],["5 pax","₱3,300"],["6 pax","₱3,700"],["7 pax","₱4,100"],["8 pax","₱4,500"]],
+      peak: [["4 pax", "₱3,400"], ["5 pax", "₱3,800"], ["6 pax", "₱4,200"], ["7 pax", "₱4,600"], ["8 pax", "₱5,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/juORKBIE",
+    image: "./images/burnham_hill_504.png"  },
+{
+    id: 20,
+    name: "Cedar Peak",
+    shortName: "Cedar Peak",
+    location: "Upper Mabini St. Corner Gen. Luna Road, Baguio City",
+    group: "Cedar Peak",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "4–7 pax",
+    nearby: ["2–3 mins walk to Cathedral","2–3 mins walk to Session Road","5–6 mins walk to Ililikha","6–7 mins walk to SM Baguio","8 mins walk to Burnham Park","10 mins walk to Orchidarium Garden","10 mins walk to Night Market","5 mins ride / 13 mins walk to Victory Liner"],
+    spots: ["Public Market","Oh My Gulay","Good Taste Restaurant","McDo, Jollibee, Chowking","Porta Vaga, BGH"],
+    inclusions: ["TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "Pay Parking ₱300–400 per night.",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["4 pax","₱2,500"],["5 pax","₱3,000"],["6 pax","₱3,500"],["7 pax","₱4,000"]],
+      weekend: [["4 pax","₱3,000"],["5 pax","₱3,500"],["6 pax","₱4,000"],["7 pax","₱4,500"]],
+      peak: [["4 pax", "₱3,500"], ["5 pax", "₱4,000"], ["6 pax", "₱4,500"], ["7 pax", "₱5,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/KUAt2F6c",
+    image: "./images/cedar_peak.png"
+  },
+{
+    id: 1,
+    name: "Stanford Residences Unit GF-11",
+    shortName: "Unit GF-11",
+    location: "Stanford New Lucban, Baguio City",
+    group: "Stanford Residences",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "1–3 pax",
+    nearby: ["5 mins walk to STI Baguio","5 mins walk to SLU Main","15 mins walk to UB","1.8km to UC","2km to UP Baguio"],
+    spots: ["5 mins walk to SLU Main","5 mins ride / 20 mins walk to Burnham Park","12 mins walk to Baguio Center Mall","10 mins ride to Night Market","15 mins ride to Session Road","15 mins ride to SM Baguio","15 mins ride to Victory Liner"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "NO PARKING",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["1 pax","₱1,500"],["2 pax","₱1,800"],["3 pax","₱2,100"]],
+      weekend: [["1 pax","₱1,800"],["2 pax","₱2,000"],["3 pax","₱2,300"]],
+      peak: [["1 pax", "₱2,300"], ["2 pax", "₱2,600"], ["3 pax", "₱3,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/cCZLPY3m",
+    image: "./images/Stanford_gf_11.png"
+  },
+{
+    id: 25,
+    name: "Stanford Residences Unit 6F-19",
+    shortName: "Unit 6F-19",
+    location: "Stanford New Lucban, Baguio City",
+    group: "Stanford Residences",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "1–3 pax",
+    nearby: ["5 mins walk to STI Baguio","5 mins walk to SLU Main","15 mins walk to UB","1.8km to UC","2km to UP Baguio"],
+    spots: ["5 mins walk to SLU Main","5 mins ride / 20 mins walk to Burnham Park","12 mins walk to Baguio Center Mall","10 mins ride to Night Market","15 mins ride to Session Road","15 mins ride to SM Baguio","15 mins ride to Victory Liner"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "NO PARKING",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["1 pax","₱1,500"],["2 pax","₱1,800"],["3 pax","₱2,100"]],
+      weekend: [["1 pax","₱1,800"],["2 pax","₱2,000"],["3 pax","₱2,300"]],
+      peak: [["1 pax", "₱2,300"], ["2 pax", "₱2,600"], ["3 pax", "₱3,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/Vtk38GOf",
+    image: "./images/stanford_6f19.png"
+  },
+{
+    id: 26,
+    name: "Stanford Residences Unit 2F-16",
+    shortName: "Unit 2F-16",
+    location: "Stanford New Lucban, Baguio City",
+    group: "Stanford Residences",
+    checkIn: "2:00 PM", checkOut: "11:00 AM",
+    pax: "1–3 pax",
+    nearby: ["5 mins walk to STI Baguio","5 mins walk to SLU Main","15 mins walk to UB","1.8km to UC","2km to UP Baguio"],
+    spots: ["5 mins walk to SLU Main","5 mins ride / 20 mins walk to Burnham Park","12 mins walk to Baguio Center Mall","10 mins ride to Night Market","15 mins ride to Session Road","15 mins ride to SM Baguio","15 mins ride to Victory Liner"],
+    inclusions: ["Balcony","TV with Netflix","Wifi","Ref","Microwave","Kitchen utensils","Pots & Pans","Induction Stove","Rice cooker","Electric Kettle","Electric Fan","Hot/Cold shower","Shampoo","Bodywash","Bidet","Fresh linens","Towels","24hrs duty guard"],
+    parking: "NO PARKING",
+    notices: ["No smoking","No pets allowed"],
+    pricing: {
+      weekday: [["1 pax","₱1,500"],["2 pax","₱1,800"],["3 pax","₱2,100"]],
+      weekend: [["1 pax","₱1,800"],["2 pax","₱2,000"],["3 pax","₱2,300"]],
+      peak: [["1 pax", "₱2,300"], ["2 pax", "₱2,600"], ["3 pax", "₱3,000"]]
+    },
+    airbnb: "https://www.airbnb.com/l/aju4Hbwj",
+    image: "./images/stanford_2f16.png"
+  }
+];
+
+// Group units
+const groupOrder = ["Bakakeng Modern House","Megatower 3","Megatower 1","Megatower 7","Grandview Residences","Ina Mansion","Zonevill","Burnham Suites","Burnham Hill","Cedar Peak","Stanford Residences"];
+const groups = {};
+units.forEach(u => {
+  if (!groups[u.group]) groups[u.group] = [];
+  groups[u.group].push(u);
+});
+
+const container = document.getElementById('locations-container');
+
+const groupIcons = {
+  "Bakakeng Modern House": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  "Ina Mansion": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  "Cedar Peak": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  "Megatower 3": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+  "Megatower 1": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+  "Megatower 7": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+  "Grandview Residences": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>`,
+  "Burnham Suites": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+  "Burnham Hill": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+  "Stanford Residences": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>`,
+  "Zonevill": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  "Standalone Properties": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`
+};
+
+const sortedGroups = [...groupOrder, ...Object.keys(groups).filter(g => !groupOrder.includes(g))];
+
+sortedGroups.forEach((groupName, idx) => {
+  if (!groups[groupName]) return;
+  const groupUnits = groups[groupName];
+
+  const groupEl = document.createElement('div');
+  groupEl.className = 'location-group fade-up';
+  groupEl.style.transitionDelay = `${idx * 0.08}s`;
+
+  const locationEl = document.querySelector('#' + CSS.escape(groupName)) || null;
+
+  groupEl.innerHTML = `
+    ${false ? `
+      <div style="text-align:center;margin-bottom:2rem;padding:1.5rem 0;border-top:1px solid rgba(196,113,143,0.15);border-bottom:1px solid rgba(196,113,143,0.15);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);letter-spacing:0.3em;">STANDALONE PROPERTIES</div>
+        <div style="font-size:0.8rem;color:var(--text-light);margin-top:0.5rem;">${groupUnits.length} unit${groupUnits.length > 1 ? 's' : ''} available</div>
+      </div>
+    ` : `
+    <div class="location-header" onclick="toggleGroup(this)">
+      <div class="location-icon">${groupIcons[groupName] || groupIcons['Standalone Properties']}</div>
+      <div class="location-info">
+        <div class="location-name">${groupName}</div>
+        <div class="location-meta">${groupUnits.length > 1 && new Set(groupUnits.map(u => u.location)).size > 1 ? '' : groupUnits[0].location}</div>
+      </div>
+      <div class="location-badge">${groupUnits.length} unit${groupUnits.length > 1 ? 's' : ''}</div>
+      <div class="location-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    `}
+    <div class="units-grid${false ? ' open' : ''}">
+      ${groupUnits.filter(u => u && u.id).map(u => `
+        <div class="unit-card" onclick="openModal(${u.id})">
+          <div class="unit-card-image">
+            ${u.image ? `<img src="${u.image}" alt="${u.name}" style="width:100%;height:100%;object-fit:cover;">` : `<div class="unit-card-image-placeholder">${u.shortName.slice(0,2).toUpperCase()}</div>`}
+            <div class="unit-pax-badge">👥 ${u.pax}</div>
+          </div>
+          <div class="unit-card-body">
+            <div class="unit-card-name">${u.shortName}</div>
+            <div class="unit-card-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ${u.location}
+            </div>
+            <div class="unit-card-tags">
+              ${u.inclusions.slice(0,3).map(i => `<span class="unit-tag">${i}</span>`).join('')}
+              ${u.inclusions.length > 3 ? `<span class="unit-tag">+${u.inclusions.length - 3} more</span>` : ''}
+            </div>
+            <div class="unit-card-btn">
+              <span>View Details</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  container.appendChild(groupEl);
+});
+
+function showUnits() {
+  document.getElementById('locations-container').style.display = 'block';
+  document.getElementById('show-units-prompt').style.display = 'none';
+  
+  // Smooth scroll to the properties
+  setTimeout(() => {
+    const container = document.getElementById('locations-container');
+    const containerTop = container.getBoundingClientRect().top + window.pageYOffset - 100;
+    window.scrollTo({ top: containerTop, behavior: 'smooth' });
+  }, 100);
+}
+
+function toggleGroup(header) {
+  header.classList.toggle('open');
+  const grid = header.nextElementSibling;
+  grid.classList.toggle('open');
+}
+
+function openModal(id) {
+  const u = units.find(x => x.id === id);
+  if (!u) return;
+
+  document.getElementById('modal-title').textContent = u.name;
+  document.getElementById('modal-location-text').textContent = u.location;
+  document.getElementById('modal-checkin').textContent = u.checkIn;
+  document.getElementById('modal-checkout').textContent = u.checkOut;
+  document.getElementById('modal-pax-text').textContent = `Good for ${u.pax}`;
+  const modalImage = document.getElementById('modal-image-placeholder');
+  if (u.image) {
+    modalImage.innerHTML = `<img src="${u.image}" alt="${u.name}" style="width:100%;height:100%;object-fit:contain;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;">`;
+  } else {
+    modalImage.innerHTML = '';
+    modalImage.textContent = u.shortName.slice(0,2).toUpperCase();
+  }
+
+  // Nearby
+  const nearbyEl = document.getElementById('modal-nearby');
+  nearbyEl.innerHTML = u.nearby.map(n => `<li>${n}</li>`).join('');
+
+  // Spots
+  const spotsEl = document.getElementById('modal-spots');
+  spotsEl.innerHTML = u.spots.map(s => `<li>${s}</li>`).join('');
+
+  // Inclusions
+  const inclEl = document.getElementById('modal-inclusions');
+  inclEl.innerHTML = u.inclusions.map(i => `<span class="modal-inclusion-tag">${i}</span>`).join('');
+
+  // Notices
+  const noticesEl = document.getElementById('modal-notices');
+  noticesEl.innerHTML = u.notices.map(n => `<div class="modal-notice">🚫 ${n}</div>`).join('');
+
+  // Parking
+  document.getElementById('modal-parking').textContent = '🚗 ' + u.parking;
+
+  // Pricing
+  const pricingEl = document.getElementById('modal-pricing');
+  const pricingGrid = document.getElementById('modal-pricing-grid');
+  if (u.pricing) {
+    pricingEl.style.display = '';
+    let html = '';
+    // Weekday block
+    html += `<div class="modal-pricing-block"><div class="modal-pricing-label">Weekdays <span class="modal-pricing-sublabel">(Mon–Thu)</span></div>`;
+    u.pricing.weekday.forEach(r => { html += `<div class="modal-pricing-row"><span>${r[0]}</span><span>${r[1]}</span></div>`; });
+    if (u.pricing.note) html += `<div class="modal-pricing-note">${u.pricing.note}</div>`;
+    html += `</div>`;
+    // Weekend block
+    html += `<div class="modal-pricing-block weekend"><div class="modal-pricing-label">Weekends <span class="modal-pricing-sublabel">(Fri–Sun, Holidays)</span></div>`;
+    u.pricing.weekend.forEach(r => { html += `<div class="modal-pricing-row"><span>${r[0]}</span><span>${r[1]}</span></div>`; });
+    if (u.pricing.note) html += `<div class="modal-pricing-note">${u.pricing.note}</div>`;
+    html += `</div>`;
+    // Peak season block
+    if (u.pricing.peak) {
+      html += `<div class="modal-pricing-block peak"><div class="modal-pricing-label">Peak Season <span class="modal-pricing-sublabel">(Dec–Jan 5, Panagbenga, Holy Week)</span></div>`;
+      u.pricing.peak.forEach(r => { html += `<div class="modal-pricing-row"><span>${r[0]}</span><span>${r[1]}</span></div>`; });
+      html += `</div>`;
+    }
+    pricingGrid.innerHTML = html;
+  } else {
+    pricingEl.style.display = 'none';
+  }
+
+  // Airbnb button
+  const btn = document.getElementById('modal-airbnb-btn');
+  if (u.airbnb) {
+    btn.href = u.airbnb;
+    btn.classList.remove('placeholder');
+    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 64 64" style="margin-right:8px;vertical-align:middle;"><path d="M60.9 45.487l-.966-2.305-1.475-3.27-.062-.062a661.83 661.83 0 0 0-14.15-28.957l-.198-.384-1.524-3.073a18.4 18.4 0 0 0-2.305-3.52A10.35 10.35 0 0 0 32.027 0a10.76 10.76 0 0 0-8.203 3.84 22.1 22.1 0 0 0-2.305 3.52l-1.735 3.395c-4.956 9.615-9.74 19.342-14.163 28.957l-.062.124c-.384 1.053-.892 2.13-1.413 3.284-.322.702-.644 1.47-.966 2.305a14.4 14.4 0 0 0-.768 6.914 13.63 13.63 0 0 0 8.327 10.631 13.16 13.16 0 0 0 5.192 1.028 14.57 14.57 0 0 0 1.66-.124 16.93 16.93 0 0 0 6.406-2.18 32.44 32.44 0 0 0 7.943-6.666 33.62 33.62 0 0 0 7.943 6.666 16.92 16.92 0 0 0 6.406 2.18c.55.073 1.105.114 1.66.124 1.783.018 3.55-.332 5.192-1.028a13.63 13.63 0 0 0 8.327-10.631 12.11 12.11 0 0 0-.582-6.852zM32.026 48.82c-3.457-4.362-5.7-8.45-6.468-11.92-.314-1.277-.38-2.6-.198-3.903.127-.965.48-1.886 1.028-2.7a6.79 6.79 0 0 1 5.638-2.825c2.236-.086 4.362.974 5.638 2.813a6.17 6.17 0 0 1 1.028 2.69 10.3 10.3 0 0 1-.198 3.903c-.768 3.395-3 7.435-6.468 11.92zm25.562 3c-.5 3.337-2.7 6.166-5.836 7.435a9.7 9.7 0 0 1-4.857.706 12.6 12.6 0 0 1-4.87-1.66 29.91 29.91 0 0 1-7.298-6.195c4.225-5.192 6.8-9.913 7.757-14.163a16.11 16.11 0 0 0 .322-5.452c-.238-1.567-.832-3.06-1.735-4.362-2.062-2.942-5.453-4.666-9.045-4.597-3.572-.046-6.942 1.65-9.033 4.547-.903 1.303-1.497 2.794-1.735 4.362a13.31 13.31 0 0 0 .322 5.452c.966 4.225 3.593 9.033 7.757 14.225a28.79 28.79 0 0 1-7.298 6.195 12.6 12.6 0 0 1-4.882 1.71 10.26 10.26 0 0 1-4.87-.644C9.16 58.12 6.94 55.292 6.45 51.954a10.61 10.61 0 0 1 .582-4.956c.198-.644.508-1.24.83-2.044.446-1.028.966-2.12 1.475-3.2l.062-.124c4.424-9.54 9.157-19.28 14.1-28.772l.186-.458 1.536-2.95a14.05 14.05 0 0 1 1.846-2.838 6.73 6.73 0 0 1 10.247 0 13.87 13.87 0 0 1 1.747 2.813l1.536 2.95.186.384c4.87 9.553 9.628 19.28 14.04 28.834v.062c.508 1.028.966 2.18 1.475 3.2.322.768.644 1.413.83 2.044a10.81 10.81 0 0 1 .446 4.956z" fill="#ff5a5f"/></svg>Book on Airbnb`;
+  } else {
+    btn.href = '#';
+    btn.classList.add('placeholder');
+    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Airbnb link coming soon`;
+  }
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
